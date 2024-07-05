@@ -1,12 +1,12 @@
-
-become: yes
-tasks:
-  - name: Install HTTP Service
-    yum:
-      name: http
-      state: present
-  - name: Start HTTP Service
-    service:
-      name: httpd
-      state: started
-      enabled: yes
+- name: Install and run HTTPD
+  become: yes
+  tasks:
+    - name: Install HTTP Package
+      yum:
+        name: http
+        state: present
+    - name: Start HTTP Service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
