@@ -1,9 +1,11 @@
-- name: Install HTTP Service
-  yum:
-    name: http
-    state: present
-- name: Start HTTP Service
-  service:
-    name: httpd
-    state: started
-    enabled: yes
+become: yes
+tasks:
+  - name: Install HTTP Service
+    yum:
+      name: http
+      state: present
+  - name: Start HTTP Service
+    service:
+      name: httpd
+      state: started
+      enabled: yes
